@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Docket Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="hiddenDiv" id="formDiv">
+    <div class="popupHeader">
+    <h1>Create Docket</h1>
+    <button onclick={hidePopup()} class="closebutton">close</button>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" name="startTime" required><br>
+
+        <label for="endTime">End Time:</label>
+        <input type="time" id="endTime" name="endTime" required><br>
+
+        <label for="hoursWorked">No of hours worked:</label>
+        <input type="number" id="hoursWorked" name="hoursWorked" required><br>
+
+        <label for="ratePerHour">Rate per hour:</label>
+        <input type="number" id="ratePerHour" name="ratePerHour" required><br>
+
+        <label for="supplier">Supplier Name:</label>
+        <select id="supplier" onchange={populatePurchaseOrders(value)} required>
+            <option value="">Select Supplier</option>
+        </select><br>
+
+        <label for="purchaseOrder">Purchase Order:</label>
+        <select id="purchaseOrder" name="purchaseOrder" required>
+            <option value="">Select Purchase Order</option>
+        </select><br>
+
+        <input type="submit" value="Create Docket">
+    </form>
+    </div>
+    <div>
+      <div class="right">
+        <center>
+        <h2>Docket Information</h2>
+        </center>
+        <button onClick={showPopup()} class="Createbutton">Create Docket</button>
+        <table id="docketListTable">
+            <tr>
+              <th>Name</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>No of hours worked</th>
+              <th>Rate per hour</th>
+              <th>Supplier Name</th>
+              <th>Purchase Order</th>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
